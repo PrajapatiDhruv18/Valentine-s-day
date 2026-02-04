@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
-
-    <!-- MYSTERIOUS LINK PREVIEW -->
-    <meta property="og:title" content="Someone made this just for you 🖤">
-<meta property="og:description" content="Click karo… baad me mat kehna bataya nahi 😌">
-
-    <title>👀</title>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
     <style>
         body{
             font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#ff9a9e,#fecfef,#ffecd2);
-    margin:0;
-    min-height:100vh;
-    overflow-x:hidden;
-    text-align:center;
-    padding: 15px;
+            background: linear-gradient(135deg,#ff9a9e,#fecfef,#ffecd2);
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            overflow:hidden;
+            text-align:center;
         }
 
         h1,h2{ color:#e91e63; }
@@ -54,7 +50,6 @@
             box-shadow:0 10px 30px rgba(0,0,0,0.2);
             animation:pop 0.5s ease;
             max-width:340px;
-            margin: auto;
         }
 
         @keyframes pop{
@@ -148,60 +143,7 @@
                 transform:translateY(110vh) rotate(720deg);
                 opacity:0;
             }
-        }/* 📱 MOBILE RESPONSIVE FIX */
-@media (max-width: 768px) {
-
-    body {
-        padding: 15px;
-        height: auto;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 100%;
-        padding: 20px;
-        border-radius: 16px;
-    }
-
-    h1 {
-        font-size: 1.6em;
-    }
-
-    h2 {
-        font-size: 1.4em;
-    }
-
-    p, li {
-        font-size: 1em;
-    }
-
-    button {
-        width: 100%;
-        font-size: 1em;
-        padding: 12px;
-        margin: 8px 0;
-    }
-
-    .envelopes {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .envelope {
-        width: 100%;
-        font-size: 1em;
-    }
-
-    .slideshow {
-        width: 100%;
-        height: 220px;
-    }
-
-    .ring {
-        font-size: 3em;
-    }
-}
-
+        }
     </style>
 </head>
 <body>
@@ -326,7 +268,7 @@
         function openProposal(){ hideAll(); proposal.classList.remove("hidden"); }
 
         // slideshow
-        const images=["./img2.jpeg","./img3.jpeg","./img4.jpeg","./img5.jpeg","./img6.jpeg"];
+        const images=["images/img2.jpeg","images/img3.jpeg","images/img4.jpeg","images/img5.jpeg","images/img6.jpeg"];
         let index=0;
         setInterval(()=>{
             const img=document.getElementById("slideImage");
