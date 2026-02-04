@@ -1,316 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <!-- MYSTERIOUS LINK PREVIEW -->
-    <meta property="og:title" content="Someone made this just for you 🖤">
+<meta charset="UTF-8">
+
+<meta property="og:title" content="Someone made this just for you 🖤">
 <meta property="og:description" content="Click karo… baad me mat kehna bataya nahi 😌">
 
-    <title>👀</title>
-    <style>
-        body{
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg,#ff9a9e,#fecfef,#ffecd2);
-            margin:0;
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            overflow:hidden;
-            text-align:center;
-        }
+<title>👀</title>
 
-        h1,h2{ color:#e91e63; }
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff9a9e,#fecfef,#ffecd2);
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    text-align:center;
+}
+h1,h2{ color:#e91e63; }
 
-        button{
-            padding:14px 28px;
-            border:none;
-            border-radius:50px;
-            font-size:1.1em;
-            cursor:pointer;
-            margin:5px;
-        }
+button{
+    padding:14px 28px;
+    border:none;
+    border-radius:50px;
+    font-size:1.1em;
+    cursor:pointer;
+    margin:5px;
+}
 
-        .yes{ background:#4caf50;color:#fff;}
-        .no{ background:#f44336;color:#fff;position:relative;}
-        .back{ background:#e91e63;color:#fff;}
+.yes{ background:#4caf50;color:#fff;}
+.no{ background:#f44336;color:#fff;position:relative;}
+.back{ background:#e91e63;color:#fff;}
+.hidden{ display:none; }
 
-        .hidden{ display:none; }
+.hearts{ position:absolute;width:100%;height:100%;pointer-events:none;}
+.heart{ position:absolute;font-size:2em;animation:float 3s infinite;}
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-20px);}
+}
 
-        /* hearts */
-        .hearts{ position:absolute;width:100%;height:100%;pointer-events:none;}
-        .heart{ position:absolute;font-size:2em;animation:float 3s infinite;}
-        @keyframes float{
-            0%,100%{transform:translateY(0);}
-            50%{transform:translateY(-20px);}
-        }
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    animation:pop 0.5s ease;
+    max-width:340px;
+}
+@keyframes pop{
+    from{transform:scale(0.7);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
 
-        /* card */
-        .card{
-            background:#fff;
-            padding:30px;
-            border-radius:20px;
-            box-shadow:0 10px 30px rgba(0,0,0,0.2);
-            animation:pop 0.5s ease;
-            max-width:340px;
-        }
+.envelopes{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    margin:20px 0;
+    flex-wrap:wrap;
+}
+.envelope{
+    background:#fff0f5;
+    padding:22px;
+    width:150px;
+    border-radius:15px;
+    cursor:pointer;
+    transition:0.3s;
+}
+.envelope:hover{
+    transform:scale(1.1);
+    background:#ffe4ec;
+}
 
-        @keyframes pop{
-            from{transform:scale(0.7);opacity:0;}
-            to{transform:scale(1);opacity:1;}
-        }
+.slideshow{
+    width:260px;
+    height:260px;
+    margin:20px auto;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+.slideshow img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
-        /* envelopes */
-        .envelopes{
-            display:flex;
-            gap:20px;
-            justify-content:center;
-            margin:20px 0;
-            flex-wrap:wrap;
-        }
+.reasons{text-align:left;}
+.reasons li{margin:10px 0;}
 
-        .envelope{
-            background:#fff0f5;
-            padding:22px;
-            width:150px;
-            border-radius:15px;
-            cursor:pointer;
-            transition:0.3s;
-        }
+.love-animation{
+    margin-top:20px;
+    font-size:2em;
+    color:#e91e63;
+    animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
 
-        .envelope:hover{
-            transform:scale(1.1);
-            background:#ffe4ec;
-        }
-
-        /* slideshow */
-        .slideshow{
-            width:260px;
-            height:260px;
-            margin:20px auto;
-            border-radius:20px;
-            overflow:hidden;
-            box-shadow:0 10px 25px rgba(0,0,0,0.25);
-        }
-
-        .slideshow img{
-            width:100%;
-            height:100%;
-            object-fit:cover;
-        }
-
-        /* reasons */
-        .reasons{ text-align:left; }
-        .reasons li{ margin:10px 0; }
-
-        /* love letter */
-        .letter{
-            text-align:left;
-            max-height:240px;
-            overflow-y:auto;
-            line-height:1.6;
-        }
-
-        /* I Love You animation */
-        .love-animation{
-            margin-top:20px;
-            font-size:2em;
-            color:#e91e63;
-            animation:pulse 1.5s infinite;
-        }
-
-        @keyframes pulse{
-            0%{transform:scale(1);}
-            50%{transform:scale(1.2);}
-            100%{transform:scale(1);}
-        }
-
-        /* proposal */
-        .ring{
-            font-size:4em;
-            animation:pop 1s infinite alternate;
-        }
-
-        /* 🎉 CONFETTI */
-        .confetti{
-            position:fixed;
-            width:10px;
-            height:10px;
-            top:-10px;
-            animation:fall linear forwards;
-            z-index:9999;
-        }
-
-        @keyframes fall{
-            to{
-                transform:translateY(110vh) rotate(720deg);
-                opacity:0;
-            }
-        }
-    </style>
+.confetti{
+    position:fixed;
+    width:10px;
+    height:10px;
+    top:-10px;
+    animation:fall linear forwards;
+}
+@keyframes fall{
+    to{transform:translateY(110vh) rotate(720deg);opacity:0;}
+}
+</style>
 </head>
+
 <body>
 
-    <!-- 🎵 Background Music -->
-    <audio id="bgMusic" loop>
-        <source src="Until_I_Found_You.mp3" type="audio/mpeg">
-    </audio>
+<audio id="bgMusic" loop>
+    <source src="Until_I_Found_You.mp3" type="audio/mpeg">
+</audio>
 
-    <div class="hearts" id="hearts"></div>
+<div class="hearts" id="hearts"></div>
 
-    <!-- Valentine Screen -->
-    <div id="valentineScreen" class="card">
-        <h1>Will You Be My Valentine? 💖</h1>
-        <p>My dearest FUTURE WIFEY 💟, you mean everything to me 🧿, you make my
-            world brighter every day 🌞, you are my today and all my tomorrows 💌,
-            my heart is all yours 💝.</p>
-        <button class="yes" onclick="openEnvelopes()">Yes!</button>
-        <button class="no" id="noBtn">No</button>
-    </div>
+<div id="valentineScreen" class="card">
+<h1>Will You Be My Valentine? 💖</h1>
+<p>My dearest FUTURE WIFEY 💟, you are my today & all my tomorrows 💌</p>
+<button class="yes" onclick="openEnvelopes()">Yes!</button>
+<button class="no" id="noBtn">No</button>
+</div>
 
-    <!-- Envelope Screen -->
-    <div id="envelopeScreen" class="card hidden">
-        <h2>Choose an envelope 💌</h2>
-        <div class="envelopes">
-            <div class="envelope" onclick="openMemories()">📷<br>Our Memories</div>
-            <div class="envelope" onclick="openLove()">❤️<br>Why I Love You</div>
-            <div class="envelope" onclick="openLetter()">💌<br>Love Letter</div>
-        </div>
-        <button class="back" onclick="goBack()">Back</button>
-    </div>
+<div id="envelopeScreen" class="card hidden">
+<h2>Choose an envelope 💌</h2>
+<div class="envelopes">
+<div class="envelope" onclick="openMemories()">📷 Our Memories</div>
+<div class="envelope" onclick="openLove()">❤️ Why I Love You</div>
+</div>
+<button class="back" onclick="goBack()">Back</button>
+</div>
 
-    <!-- Memories -->
-    <div id="memories" class="card hidden">
-        <h2>Our Memories 💕</h2>
-        <div class="slideshow">
-            <img id="slideImage" src="img1.jpeg">
+<div id="memories" class="card hidden">
+<h2>Our Memories 💕</h2>
+<div class="slideshow">
+<img id="slideImage" src="img1.jpeg">
+</div>
+<button class="back" onclick="backToEnvelope()">Back</button>
+</div>
 
-        </div>
-        <button class="back" onclick="backToEnvelope()">Back</button>
-    </div>
+<div id="love" class="card hidden">
+<h2>Why I Love You ❤️</h2>
+<ul class="reasons">
+<li>Tumhari smile meri duniya hai 🧿</li>
+<li>Tum mujhe bina bole samajh jaati ho 😊</li>
+<li>Tumhare saath har moment special hota hai 🌹</li>
+</ul>
+<button class="back" onclick="backToEnvelope()">Back</button>
+</div>
 
-    <!-- Why I Love You -->
-    <div id="love" class="card hidden">
-        <h2>Why I Love You ❤️</h2>
-        <ul class="reasons">
-            <li> Tumhari smile meri duniya hai 🧿</li>
-            <li> Tum mujhe bina bole samajh jaati ho😊</li>
-            <li> Tumhare saath har moment special hota hai🌹👌</li>
-            <li> You make me feel safe and loved💟</li>
-            <li> Because loving you feels natural🥰</li>
-        </ul>
-        <button class="back" onclick="backToEnvelope()">Back</button>
-    </div>
+<script>
+document.body.addEventListener('click',()=>{
+    const a=document.getElementById("bgMusic");
+    if(a.paused) a.play();
+},{once:true});
 
-    <!-- Love Letter -->
-    <div id="letter" class="card hidden">
-        <h2>My Love Letter 💌</h2>
-        <div class="letter">
-            MY BELOVED TANVI🌸,<br><br>
-            Jab se tum meri zindagi me aayi ho, sab kuch zyada khoobsurat ho gaya hai.
-            Tumhari ek smile mera din bana deti hai aur tumhari awaaz mujhe sukoon deti hai.<br><br>
+function createHeart(){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.top=Math.random()*100+"vh";
+    document.getElementById("hearts").appendChild(h);
+    setTimeout(()=>h.remove(),3000);
+}
+setInterval(createHeart,500);
 
-            Tum sirf meri Valentine nahi ho, tum meri comfort ho, meri strength ho,
-            aur meri sabse pyaari aadat ho.<br><br>
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+    noBtn.style.left=Math.random()*(window.innerWidth-100)+"px";
+    noBtn.style.top=Math.random()*(window.innerHeight-50)+"px";
+});
 
-            Chahe future jo bhi ho, ek baat pakki hai —
-            main har din tumhe choose karunga. ❤️<br><br>
+function hideAll(){document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden"));}
+function openEnvelopes(){hideAll();envelopeScreen.classList.remove("hidden");}
+function goBack(){hideAll();valentineScreen.classList.remove("hidden");}
+function openMemories(){hideAll();memories.classList.remove("hidden");}
+function openLove(){hideAll();love.classList.remove("hidden");}
+function backToEnvelope(){hideAll();envelopeScreen.classList.remove("hidden");}
 
-            Forever yours,<br>
-            <b>DHRUV(PILLU🤭)</b>
-        </div>
+const images=[
+"img1.jpeg","img2.jpeg","img3.jpeg","img4.jpeg","img5.jpeg",
+"img6.jpeg","img7.jpeg","img8.jpeg","img9.jpeg","img10.jpeg"
+];
+let index=0;
+setInterval(()=>{
+    const img=document.getElementById("slideImage");
+    if(!img) return;
+    index=(index+1)%images.length;
+    img.src=images[index];
+},3000);
+</script>
 
-        <div class="love-animation">I Love You ❤️</div>
-        <button class="back" onclick="openProposal()">Next</button>
-    </div>
-
-    <!-- Proposal -->
-    <div id="proposal" class="card hidden">
-        <div class="ring">💍</div>
-        <h2>Will you be mine forever?💖</h2>
-        <p>Not just today, but every tomorrow🤗</p>
-        <button class="yes" onclick="celebrate()">YES ❤️</button>
-    </div>
-
-    <script>
-        // 🎵 Play music on first click (autoplay fix)
-        document.body.addEventListener('click', function(){
-            const audio = document.getElementById('bgMusic');
-            if(audio.paused){
-                audio.play();
-            }
-        }, {once:true});
-
-        // hearts
-        function createHeart(){
-            const h=document.createElement("div");
-            h.className="heart";
-            h.innerHTML="❤️";
-            h.style.left=Math.random()*100+"vw";
-            h.style.top=Math.random()*100+"vh";
-            document.getElementById("hearts").appendChild(h);
-            setTimeout(()=>h.remove(),3000);
-        }
-        setInterval(createHeart,500);
-
-        // no button dodge
-        const noBtn=document.getElementById("noBtn");
-        noBtn.addEventListener("mouseover",()=>{
-            noBtn.style.position="absolute";
-            noBtn.style.left=Math.random()*(window.innerWidth-100)+"px";
-            noBtn.style.top=Math.random()*(window.innerHeight-50)+"px";
-        });
-
-        // navigation
-        function hideAll(){ document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden")); }
-        function openEnvelopes(){ hideAll(); envelopeScreen.classList.remove("hidden"); }
-        function goBack(){ hideAll(); valentineScreen.classList.remove("hidden"); }
-        function openMemories(){ hideAll(); memories.classList.remove("hidden"); }
-        function openLove(){ hideAll(); love.classList.remove("hidden"); }
-        function openLetter(){ hideAll(); letter.classList.remove("hidden"); }
-        function backToEnvelope(){ hideAll(); envelopeScreen.classList.remove("hidden"); }
-        function openProposal(){ hideAll(); proposal.classList.remove("hidden"); }
-
-        // slideshow
-        const images=["img1.jpeg",
-  "img2.jpeg",
-  "img3.jpeg",
-  "img4.jpeg",
-  "img5.jpeg",
-  "img6.jpeg",
-  "img7.jpeg",
-  "img8.jpeg",
-  "img9.jpeg",
-  "img10.jpeg"];
-        let index=0;
-        setInterval(()=>{
-            const img=document.getElementById("slideImage");
-            if(!img) return;
-            index=(index+1)%images.length;
-            img.src=images[index];
-        },3000);
-
-        // 🎉 CONFETTI CELEBRATION
-        function celebrate(){
-            for(let i=0;i<180;i++){
-                const c=document.createElement("div");
-                c.className="confetti";
-                const colors=["#ff4081","#e91e63","#ffc107","#4caf50","#03a9f4"];
-                c.style.background=colors[Math.floor(Math.random()*colors.length)];
-                c.style.left=Math.random()*100+"vw";
-                c.style.animationDuration=(Math.random()*3+2)+"s";
-                document.body.appendChild(c);
-                setTimeout(()=>c.remove(),5000);
-            }
-        }
-    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
