@@ -417,31 +417,6 @@
         <button class="back" onclick="openProposal()">Next</button>
     </div>
 
-    <!-- Proposal -->
-    <div id="proposal" class="card hidden">
-        <div class="ring">💍</div>
-        <h2>Will you be mine forever?💖</h2>
-        <p>Not just today, but every tomorrow🤗</p>
-        <button class="yes" onclick="celebrate()">YES ❤️</button>
-    </div>
-    <div id="finalEnding" class="cinema hidden">
-    <div class="cinema-content">
-        <h1 class="cinema-line">And in the end…</h1>
-        <h2 class="cinema-line delay1">
-            it was never about Valentine’s Day 💫
-        </h2>
-        <h2 class="cinema-line delay2">
-            it was about choosing <span>YOU</span>… every single day ❤️
-        </h2>
-
-        <div class="ring-final delay3">💍</div>
-
-        <p class="final-text delay4">
-            Tanvi, this isn’t the end.<br>
-            This is where our forever begins 😌
-        </p>
-    </div>
-</div>
 
     <script>
         // 🎵 Play music on first click (autoplay fix)
@@ -576,17 +551,12 @@ function flipCard(container){
                 document.body.appendChild(c);
                 setTimeout(()=>c.remove(),5000);
             }
-            setTimeout(()=>{
-        openFinalEnding();
-    }, 4000); // 4 sec baad cinematic end
-        }
-        function openFinalEnding(){
-    hideAll();
-    document.getElementById("finalEnding").classList.remove("hidden");
+            
 }
     </script>
 </body>
 </html>
+
 
 
 
