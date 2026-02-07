@@ -164,10 +164,22 @@
         <p>My dearest FUTURE WIFEY 💟, you mean everything to me 🧿, you make my
             world brighter every day 🌞, you are my today and all my tomorrows 💌,
             my heart is all yours 💝.</p>
-        <button class="yes" onclick="openEnvelopes()">Yes!</button>
+        <button class="yes" onclick="openGif()">Yes!</button>
         <button class="no" id="noBtn">No</button>
     </div>
+<!-- GIF Screen -->
+<div id="gifScreen" class="card hidden">
+    <h2>I KNEW IT😘</h2>
 
+    <img 
+        src="love gif.gif" 
+        alt="Love GIF"
+        style="width:260px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.25);"
+    >
+
+    <br><br>
+    <button class="back" onclick="openEnvelopes()">Next 💌</button>
+</div>
     <!-- Envelope Screen -->
     <div id="envelopeScreen" class="card hidden">
         <h2>Choose an envelope 💌</h2>
@@ -260,6 +272,14 @@
             noBtn.style.left=Math.random()*(window.innerWidth-100)+"px";
             noBtn.style.top=Math.random()*(window.innerHeight-50)+"px";
         });
+       function openGif(){
+    hideAll();
+    gifScreen.classList.remove("hidden");
+
+    setTimeout(() => {
+        openEnvelopes();
+    }, 5000); // 5 seconds
+}
 
         // navigation
         function hideAll(){ document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden")); }
@@ -306,6 +326,7 @@
     </script>
 </body>
 </html>
+
 
 
 
