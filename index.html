@@ -167,18 +167,26 @@
         <button class="yes" onclick="openGif()">Yes!</button>
         <button class="no" id="noBtn">No</button>
     </div>
-<!-- GIF Screen -->
+<!-- GIF + Typing Text Screen -->
 <div id="gifScreen" class="card hidden">
-    <h2>I KNEW IT😘</h2>
+    <h2>Ek chhota sa surprise tumhare liye 🥹💖</h2>
 
     <img 
-        src="love gif.gif" 
+        src="love.gif"
         alt="Love GIF"
         style="width:260px;border-radius:20px;box-shadow:0 10px 25px rgba(0,0,0,0.25);"
     >
 
-    <br><br>
-    <button class="back" onclick="openEnvelopes()">Next 💌</button>
+    <p id="typingText" style="
+        margin-top:15px;
+        font-size:1.1em;
+        color:#e91e63;
+        min-height:60px;
+    "></p>
+
+    <button class="back hidden" id="gifNextBtn" onclick="openEnvelopes()">
+        Next 💌
+    </button>
 </div>
     <!-- Envelope Screen -->
     <div id="envelopeScreen" class="card hidden">
@@ -280,6 +288,32 @@
         openEnvelopes();
     }, 5000); // 5 seconds
 }
+        function openGif(){
+    hideAll();
+    gifScreen.classList.remove("hidden");
+
+    const text = "Tanvi 💖🌸\nTum sirf aaj ki kahani nahi ho,\ntum meri har kal ki planning ho ❤️";
+    const typingEl = document.getElementById("typingText");
+    const nextBtn = document.getElementById("gifNextBtn");
+
+    typingEl.innerHTML = "";
+    nextBtn.classList.add("hidden");
+
+    let i = 0;
+    const speed = 50; // typing speed (ms)
+
+    function type(){
+        if(i < text.length){
+            typingEl.innerHTML += text[i] === "\n" ? "<br>" : text[i];
+            i++;
+            setTimeout(type, speed);
+        } else {
+            nextBtn.classList.remove("hidden");
+        }
+    }
+
+    type();
+}
 
         // navigation
         function hideAll(){ document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden")); }
@@ -326,6 +360,7 @@
     </script>
 </body>
 </html>
+
 
 
 
