@@ -212,7 +212,26 @@
        tum meri aadat banne wali ho 😌🤗
     </p>
 
-    <button class="back" onclick="goFromMemory()">
+   <button class="back" onclick="openPromises()">Next 💕</button>
+</div> 
+    <!-- Promise Cards Screen -->
+<div id="promiseScreen" class="card hidden">
+    <h2>Ek chhota sa vaada 💖</h2>
+
+    <div class="envelopes">
+        <div class="envelope" onclick="showPromise(1)">🤍<br>Promise 1</div>
+        <div class="envelope" onclick="showPromise(2)">💗<br>Promise 2</div>
+        <div class="envelope" onclick="showPromise(3)">❤️<br>Promise 3</div>
+    </div>
+
+    <p id="promiseText" style="
+        margin-top:15px;
+        color:#e91e63;
+        font-size:1.05em;
+        min-height:60px;
+    "></p>
+
+    <button class="back hidden" id="promiseNext" onclick="openEnvelopes()">
         Next 💕
     </button>
 </div>
@@ -336,6 +355,33 @@ function openMemory(){
         function goFromMemory(){
     openEnvelopes(); // ya next screen jo tum chaho
 }
+        function openPromises(){
+    hideAll();
+    promiseScreen.classList.remove("hidden");
+
+    document.getElementById("promiseText").innerHTML = "";
+    document.getElementById("promiseNext").classList.add("hidden");
+}
+
+function showPromise(num){
+    const promiseText = document.getElementById("promiseText");
+    const nextBtn = document.getElementById("promiseNext");
+
+    let text = "";
+
+    if(num === 1){
+        text = "Tanvi 💖<br>Main har situation me tumhara side lunga,\nchahe duniya idhar ho ya udhar 😌";
+    }
+    if(num === 2){
+        text = "Main tumhari khushi ko hamesha priority banaunga 💕\nAur tumhare tears ko apna samajh ke sambhaalunga 🥹";
+    }
+    if(num === 3){
+        text = "Main perfect nahi hoon,\npar tumhare liye hamesha sincere rahunga ❤️";
+    }
+
+    promiseText.innerHTML = text.replace(/\n/g, "<br>");
+    nextBtn.classList.remove("hidden");
+}
         // navigation
         function hideAll(){ document.querySelectorAll(".card").forEach(c=>c.classList.add("hidden")); }
         function openEnvelopes(){ hideAll(); envelopeScreen.classList.remove("hidden"); }
@@ -381,6 +427,7 @@ function openMemory(){
     </script>
 </body>
 </html>
+
 
 
 
