@@ -58,6 +58,7 @@
         @keyframes pop{
             from{transform:scale(0.7);opacity:0;}
             to{transform:scale(1);opacity:1;}
+            <p id="typingText" style="margin-top:10px; animation: pop 0.5s ease;">
         }
 
         /* envelopes */
@@ -290,29 +291,16 @@
 }
         function openGif(){
     hideAll();
-    gifScreen.classList.remove("hidden");
+    gifScreen.classList.remove("hidden"); // GIF + text ek saath show
 
-    const text = "Tanvi 💖🌸\nTum sirf aaj ki kahani nahi ho,\ntum meri har kal ki planning ho ❤️";
     const typingEl = document.getElementById("typingText");
     const nextBtn = document.getElementById("gifNextBtn");
 
-    typingEl.innerHTML = "";
-    nextBtn.classList.add("hidden");
+    const text = "Tanvi 💖\nTum sirf aaj ki kahani nahi ho,\ntum meri har kal ki planning ho ❤️";
+    // 👇 SIDHA EK SAATH TEXT SHOW
+    typingEl.innerHTML = text.replace(/\n/g, "<br>");
 
-    let i = 0;
-    const speed = 50; // typing speed (ms)
-
-    function type(){
-        if(i < text.length){
-            typingEl.innerHTML += text[i] === "\n" ? "<br>" : text[i];
-            i++;
-            setTimeout(type, speed);
-        } else {
-            nextBtn.classList.remove("hidden");
-        }
-    }
-
-    type();
+    nextBtn.classList.remove("hidden");
 }
 
         // navigation
@@ -360,6 +348,7 @@
     </script>
 </body>
 </html>
+
 
 
 
